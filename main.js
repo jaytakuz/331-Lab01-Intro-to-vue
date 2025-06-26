@@ -7,8 +7,10 @@ createApp({
         const image = ref('assets/images/socks_green.jpg')
         const camturl = ref('https://www.camt.cmu.ac.th')
         const inStock = ref(true)
+        const inventory = ref(180)
+
         return {
-            product, productDescription, image, camturl, inStock
+            product, productDescription, image, camturl, inStock, inventory
         }
     }
 }).mount('#app')
