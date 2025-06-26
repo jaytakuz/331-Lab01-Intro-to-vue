@@ -10,8 +10,10 @@ createApp({
         const inventory = ref(180)
         const onSale = ref(true)
 
+        const details = ref(['50% cotton', '30% wool', '20% polyester'])
+
         return {
-            product, productDescription, image, camturl, inStock, inventory, onSale
+            product, productDescription, image, camturl, inStock, inventory, onSale, details
         }
     }
 }).mount('#app')
