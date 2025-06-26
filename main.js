@@ -28,8 +28,12 @@ createApp({
             image.value = variantImage
         }
 
+        function inStockToggle() {
+            inStock.value = !inStock.value
+        }
+
         return {
-            product, productDescription, image, camturl, inStock, inventory, onSale, details, variants, sizes, cart, addToCart, updateImage
+            product, productDescription, image, camturl, inStock, inventory, onSale, details, variants, sizes, cart, addToCart, updateImage, inStockToggle
         }
     }
 }).mount('#app')

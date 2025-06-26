@@ -27,9 +27,9 @@
             <h1><a :href="camturl" target="_blank">{{ product }}</a></h1>
             <h4 v-if="onSale">It's now on SALE!</h4>
             <h2>{{productDescription}}</h2>
-            <p v-if="inventory > 10">In Stock</p>
-            <p v-else-if="inventory <= 10 && inventory > 0">Almost out of Stock</p>
-            <p v-else>Out of Stock</p>
+            <p v-if="inStock && inventory > 10">In Stock</p>
+            <p v-else-if="inStock && inventory <= 10 && inventory > 0">Almost out of Stock</p>
+            <p v-else>Out of Stock</p>            
 
             <ul>
                 <li v-for="detail in details">{{detail}}</li>
@@ -43,7 +43,7 @@
             <div>{{ sizes.join(', ') }}</div>
 
             <button class="button" @click="addToCart">Add to Cart</button>
-            
+            <button class="button" @click="inStockToggle">Change Stock</button>
         </div>
     </div>
 
