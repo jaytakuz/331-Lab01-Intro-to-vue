@@ -36,6 +36,10 @@
             <div v-for="variant in variants" :key="variant.id">
                 {{ variant.color }}
             </div>
+
+            <!-- Show the sizes of the socks in the single line -->
+            <div>{{ sizes.join(', ') }}</div>
+
         </div>
     </div>
 

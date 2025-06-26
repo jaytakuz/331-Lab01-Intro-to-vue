@@ -17,8 +17,10 @@ createApp({
             { id: 2235, color: 'blue'}
         ])
 
+        const sizes = ref(['S', 'M', 'L'])
+
         return {
-            product, productDescription, image, camturl, inStock, inventory, onSale, details, variants
+            product, productDescription, image, camturl, inStock, inventory, onSale, details, variants, sizes
         }
     }
 }).mount('#app')
