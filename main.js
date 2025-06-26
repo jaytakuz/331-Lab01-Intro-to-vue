@@ -18,9 +18,14 @@ createApp({
         ])
 
         const sizes = ref(['S', 'M', 'L'])
+        const cart = ref(0)
+
+        function addToCart() {
+            cart.value +=1
+        }
 
         return {
-            product, productDescription, image, camturl, inStock, inventory, onSale, details, variants, sizes
+            product, productDescription, image, camturl, inStock, inventory, onSale, details, variants, sizes, cart, addToCart
         }
     }
 }).mount('#app')

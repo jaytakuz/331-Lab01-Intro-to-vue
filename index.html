@@ -13,6 +13,8 @@
 <body>
     <div id="app">
         <div class="nav-bar"></div>
+        <div class="cart">Cart({{cart}})</div>
+
         <div class="product-display">
             <div class="product-container">
                 <div class="product-image">
@@ -40,6 +42,8 @@
             <!-- Show the sizes of the socks in the single line -->
             <div>{{ sizes.join(', ') }}</div>
 
+            <button class="button" @click="addToCart">Add to Cart</button>
+            
         </div>
     </div>
 
