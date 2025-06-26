@@ -8,9 +8,10 @@ createApp({
         const camturl = ref('https://www.camt.cmu.ac.th')
         const inStock = ref(true)
         const inventory = ref(180)
+        const onSale = ref(true)
 
         return {
-            product, productDescription, image, camturl, inStock, inventory
+            product, productDescription, image, camturl, inStock, inventory, onSale
         }
     }
 }).mount('#app')
