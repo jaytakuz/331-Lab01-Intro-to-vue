@@ -2,9 +2,10 @@ const { createApp, ref } = Vue
 
 createApp({
     setup(){
-        const product = ref('Socks')
+        const product = ref('Boots')
+        const productDescription = ref('A new pair of brand new leather boots')
         return {
-            product
+            product, productDescription
         }
     }
 }).mount('#app')
