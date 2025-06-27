@@ -24,8 +24,8 @@
             </div>
         </div>
         <div class="product-info">
-            <h1><a :href="camturl" target="_blank">{{ product }}</a></h1>
-            <h4 v-if="onSale">It's now on SALE!</h4>
+            <h1><a :href="camturl" target="_blank">{{ title }}</a></h1>
+            <h4 v-if="onSale">{{ onSaleText }}</h4>
             <h2>{{productDescription}}</h2>
             <p v-if="inStock && inventory > 10">In Stock</p>
             <p v-else-if="inStock && inventory <= 10 && inventory > 0">Almost out of Stock</p>
@@ -35,7 +35,7 @@
                 <li v-for="detail in details">{{detail}}</li>
             </ul>
 
-            <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)" class="color-circle" :style="{backgroundColor: variant.color }"></div>
+            <div v-for="(variant,index) in variants" :key="variant.id" @mouseover="updateVariant(index)" class="color-circle" :style="{backgroundColor: variant.color }"></div>
 
             <!-- Show the sizes of the socks in the single line -->
             <div>{{ sizes.join(', ') }}</div>
