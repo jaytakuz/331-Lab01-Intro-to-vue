@@ -19,7 +19,7 @@
             <div class="product-container">
                 <div class="product-image">
                     <!-- Product Image -->
-                    <img :src="image" alt="Product">
+                    <img :src="image" :class="{ 'out-of-stock-img' : !inStock }" alt="Out of Stock"> 
                 </div>
             </div>
         </div>
@@ -35,14 +35,12 @@
                 <li v-for="detail in details">{{detail}}</li>
             </ul>
 
-            <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)">
-                {{ variant.color }}
-            </div>
+            <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)" class="color-circle" :style="{backgroundColor: variant.color }"></div>
 
             <!-- Show the sizes of the socks in the single line -->
             <div>{{ sizes.join(', ') }}</div>
 
-            <button class="button" @click="addToCart">Add to Cart</button>
+            <button class="button" :disables='!inStock' @click="addToCart" :class="{disabledButton: !inStock}">Add to Cart</button>
             <button class="button" @click="inStockToggle">Change Stock</button>
         </div>
     </div>

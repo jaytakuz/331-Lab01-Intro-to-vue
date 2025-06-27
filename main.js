@@ -6,7 +6,7 @@ createApp({
         const productDescription = ref('A new pair of brand new leather boots')
         const image = ref('assets/images/socks_green.jpg')
         const camturl = ref('https://www.camt.cmu.ac.th')
-        const inStock = ref(true)
+        const inStock = ref(false)
         const inventory = ref(180)
         const onSale = ref(true)
 
