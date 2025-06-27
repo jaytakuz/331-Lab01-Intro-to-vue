@@ -15,37 +15,14 @@
         <div class="nav-bar"></div>
         <div class="cart">Cart({{cart}})</div>
 
-        <div class="product-display">
-            <div class="product-container">
-                <div class="product-image">
-                    <!-- Product Image -->
-                    <img :src="image" :class="{ 'out-of-stock-img' : !inStock }" alt="Out of Stock"> 
-                </div>
-            </div>
-        </div>
-        <div class="product-info">
-            <h1><a :href="camturl" target="_blank">{{ title }}</a></h1>
-            <h4 v-if="onSale">{{ onSaleText }}</h4>
-            <h2>{{productDescription}}</h2>
-            <p v-if="inStock && inventory > 10">In Stock</p>
-            <p v-else-if="inStock && inventory <= 10 && inventory > 0">Almost out of Stock</p>
-            <p v-else>Out of Stock</p>            
+        <product-display></product-display>
+        <product-display></product-display>
+        <product-display :premium="premium"></product-display>
 
-            <ul>
-                <li v-for="detail in details">{{detail}}</li>
-            </ul>
-
-            <div v-for="(variant,index) in variants" :key="variant.id" @mouseover="updateVariant(index)" class="color-circle" :style="{backgroundColor: variant.color }"></div>
-
-            <!-- Show the sizes of the socks in the single line -->
-            <div>{{ sizes.join(', ') }}</div>
-
-            <button class="button" :disables='!inStock' @click="addToCart" :class="{disabledButton: !inStock}">Add to Cart</button>
-            <button class="button" @click="inStockToggle">Change Stock</button>
-        </div>
     </div>
 
     <!-- Import Js -->
+    <script src="./components/ProductDisplay.js"></script>
     <script src="./main.js"></script>
 </body>
 
