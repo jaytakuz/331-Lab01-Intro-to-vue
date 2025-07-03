@@ -30,6 +30,9 @@ const productDisplay = {
             <button class="button" @click="removeFromCart" :disabled="!inStock">
                 Remove from Cart
             </button>
+
+            <review-list v-if="reviews.length" :reviews="reviews"></review-list>
+            <review-form @review-submitted="addReview"></review-form>
           </div>
         </div>
       </div>
@@ -84,13 +87,19 @@ const productDisplay = {
       }
   
       const shipping = computed(() => {
-        if (props.premium) {
-            return 'Free'
-        } else {
-            return 30
+            if (props.premium) {
+              return 'Free'
+            } else {
+              return 30
+            }
         }
+      )
+
+      const reviews = ref([])
+
+      function addReview(review) {
+        reviews.value.push(review)
       }
-    )
 
       return {
         title,
@@ -103,7 +112,9 @@ const productDisplay = {
         removeFromCart,
         updateImage,
         updateVariant,
-        shipping
+        shipping,
+        reviews,
+        addReview
       }
     }
   }
