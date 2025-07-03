@@ -14,6 +14,13 @@ const app = createApp({
             cart.value.push(id)
         }
         
+        function removeFromCart(id) {
+            const index = cart.value.indexOf(id)
+            if (index > -1) {
+                cart.value.splice(index, 1)
+            }
+        }
+
         const cartCount = computed(() => {
             return cart.value.reduce((counts, id) => {
               counts[id] = (counts[id] || 0) + 1
@@ -26,7 +33,8 @@ const app = createApp({
             cartCount,
             premium,
             details,
-            updateCart
+            updateCart,
+            removeFromCart
         }
     }
 })

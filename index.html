@@ -20,9 +20,9 @@
             </div>
         </div>
 
-        <product-display @add-to-cart="updateCart"></product-display>
-        <product-display @add-to-cart="updateCart"></product-display>
-        <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
+        <product-display @add-to-cart="updateCart" @remove-from-cart="removeFromCart"></product-display>
+        <product-display @add-to-cart="updateCart" @remove-from-cart="removeFromCart"></product-display>
+        <product-display :premium="premium" @add-to-cart="updateCart" @remove-from-cart="removeFromCart"></product-display>
         <product-detail :details="details"></product-detail>
 
     </div>
