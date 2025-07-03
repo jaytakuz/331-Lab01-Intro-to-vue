@@ -35,7 +35,7 @@ const productDisplay = {
         premium: Boolean
     },
 
-    setup(props) {
+    setup(props, { emit } ) {
       const product = ref('Boots')
       const brand = ref('SE 331')
       const inventory = ref(100)
@@ -49,7 +49,7 @@ const productDisplay = {
         { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg', quantity: 0 }
       ])
       const selectedVariant = ref(0)
-      const cart = ref(0)
+      const cart = ref([])
   
       const image = computed(() => {
         return variants.value[selectedVariant.value].image
@@ -68,7 +68,8 @@ const productDisplay = {
       }
   
       function addToCart() {
-        cart.value += 1
+        // cart.value += 1
+        emit('add-to-cart', variants.value[selectedVariant.value].id)
       }
   
       function updateImage(variantImage) {

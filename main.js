@@ -7,12 +7,17 @@ const app = createApp({
 
         const details = ref([
             'sometimes its socks', 'sometimes its sucks'
-          ])
+        ])
 
+        function updateCart(id) {
+            cart.value.push(id)
+        }
+        
         return {
             cart,
             premium,
-            details
+            details,
+            updateCart
         }
     }
 })
